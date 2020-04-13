@@ -17,15 +17,15 @@
    ├── shell dir(这里是存放这个shell的文件夹)
    ├── your project name.xcodeproj
    └── your project name
-    └── Localzation 
-   	├── en.lproj
-   	├── zh-Hans.lproj
-   	├── ......
-   	└── ar.lproj
-   		├── a.strings
-   		├── b.strings
-   		├── ....
-   		└── xxx.strings
+       └── Localzation 
+       ├── en.lproj
+       ├── zh-Hans.lproj
+       ├── ......
+       └── ar.lproj
+         ├── a.strings
+         ├── b.strings
+         ├── ....
+         └── xxx.strings
    ```
 
 4. 假设你的excel表格是如下格式
