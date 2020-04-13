@@ -7,7 +7,7 @@ xlsx[1]=$(find . -iname "*sub*.xlsx")
 
 # 多语言文件名称
 LOCALIZABLE_FILES[0]="Localizable.strings"
-LOCALIZABLE_FILES[1]="StyleProject.strings"
+LOCALIZABLE_FILES[1]="Subscription.strings"
 
 # 多语言存放的目录名字
 LOCALIZABLE_DIR_NAME="Localization"
