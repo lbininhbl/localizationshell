@@ -18,14 +18,14 @@
    ├── your project name.xcodeproj
    └── your project name
        └── Localzation 
-       ├── en.lproj
-       ├── zh-Hans.lproj
-       ├── ......
-       └── ar.lproj
-         ├── a.strings
-         ├── b.strings
-         ├── ....
-         └── xxx.strings
+         ├── en.lproj
+         ├── zh-Hans.lproj
+         ├── ......
+         └── ar.lproj
+           ├── a.strings
+           ├── b.strings
+           ├── ....
+           └── xxx.strings
    ```
 
 4. 假设你的excel表格是如下格式
