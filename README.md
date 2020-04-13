@@ -1,5 +1,5 @@
 # localizationshell
-这个shell脚本主要为是了解决iOS项目中多语言内容设置机械重复的问题，在此之前基本上是开者发根据运营或者产品给的excel文件，手动一个一个内容复制到多语言的.strings文件中。也曾尝试找一些开源工具，但都没有找到一个合适的。借着之前有用过shell编写[iOS打包脚本](https://github.com/lbininhbl/AutoPackageScript)的经验，基于shell写一个工具，来解放开发者的生产力。
+这个shell脚本主要为是了解决iOS项目中多语言内容设置机械重复的问题，在此之前基本上是开发者根据运营或者产品给的excel文件，手动一个一个内容复制到多语言的.strings文件中。也曾尝试找一些开源工具，但都没有找到一个合适的。借着之前有用过shell编写[iOS打包脚本](https://github.com/lbininhbl/AutoPackageScript)的经验，基于shell写一个工具，来解放开发者的生产力。
 
 ## 一些约定
 
