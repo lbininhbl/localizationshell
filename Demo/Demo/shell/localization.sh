@@ -42,7 +42,7 @@ csv_content=`cat $CSV_FILE`
 
 # 获取当前所有列数、行数
 allColumn=`echo "$csv_content" | awk -F'\t' 'END{print NF}'`
-allRow=`echo "$csv_content" | awk -F't' 'END{print NR}'`
+allRow=`echo "$csv_content" | awk -F'\t' 'END{print NR}'`
 
 echo -e "总共有${allColumn}列，${allRow}行\n"
 
