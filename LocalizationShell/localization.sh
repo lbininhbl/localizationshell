@@ -1,4 +1,16 @@
 #!/bin/bash
+#set -x
+
+################################## 定义常量或变量 #################################
+# =============================== 路径相关 =============================== #
+# 当前目录路径
+CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
+PROJECT_DIR=$(cd "${CURRENT_DIR}/.."; pwd)
+
+cd "$CURRENT_DIR"
+
+# =============================== 文件相关 =============================== #
+CSV_FILE="tmp.csv"
 
 ################################## 配置相关 #################################
 # 多语言表格
@@ -15,17 +27,8 @@ LOCALIZABLE_DIR_NAME="Localization"
 # 自定义的换行符
 NEWLINE="#@@#"
 
-################################## 定义常量或变量 #################################
-# =============================== 路径相关 =============================== #
-# 当前目录路径
-CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
-PROJECT_DIR=$(cd "${CURRENT_DIR}/.."; pwd)
-
 # Localization目录
 LOCALIZATION_PATH=$(cd "${PROJECT_DIR}"; cd "$(find . -name "${LOCALIZABLE_DIR_NAME}" -type d)"; pwd)
-
-# =============================== 文件相关 =============================== #
-CSV_FILE="tmp.csv"
 
 ################################## 开始执行内容 ##################################
 
@@ -35,8 +38,14 @@ do
 current_xlsx=${xlsx[$i]}
 current_localizable_file=${LOCALIZABLE_FILES[$i]}
 
+if [ -z "$current_xlsx" ]; then
+continue
+else
+echo "当前的xlsx文件${current_xlsx}"
+fi
+
 # 先将xlsx转换成csv，确保安装了python的插件，https://github.com/dilshod/xlsx2csv
-xlsx2csv -d 'tab' $current_xlsx "$CSV_FILE"
+xlsx2csv -d 'tab' "$current_xlsx" "$CSV_FILE"
 
 csv_content=`cat $CSV_FILE`
 
@@ -52,7 +61,7 @@ do
 
 # 第一行都是各国的语言代码
 language_code=`echo "$csv_content" | awk -F'\t' -v awk_var="$j" '{ if (NR==1) {print $awk_var;}}'`
-#echo "当前处理的语言: $language_code"
+echo "当前处理的语言: $language_code"
 
 file="${LOCALIZATION_PATH}/${language_code}.lproj/$current_localizable_file"
 
