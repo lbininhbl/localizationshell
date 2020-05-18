@@ -16,6 +16,24 @@ cd "$CURRENT_DIR"
 # =============================== 文件相关 =============================== #
 CSV_FILE="tmp.csv"
 
+################################## 配置相关 #################################
+# 多语言表格
+xlsx[0]=$(find . -iname "*default*.xlsx")
+xlsx[1]=$(find . -iname "*sub*.xlsx")
+
+# 多语言文件名称
+LOCALIZABLE_FILES[0]="Localizable.strings"
+LOCALIZABLE_FILES[1]="StyleProject.strings"
+
+# 多语言存放的目录名字
+LOCALIZABLE_DIR_NAME="Localization"
+
+# 自定义的换行符
+NEWLINE="#@@#"
+
+# Localization目录
+LOCALIZATION_PATH=$(cd "${PROJECT_DIR}"; cd "$(find . -name "${LOCALIZABLE_DIR_NAME}" -type d)"; pwd)
+
 ################################## 自定义函数 #################################
 # 格式化时间字符串
 function formatCostTime() {
@@ -41,25 +59,6 @@ function formatCostTime() {
         totalCost="${hour}h${minut}m${second}s"
     fi
 }
-
-################################## 配置相关 #################################
-# 多语言表格
-xlsx[0]=$(find . -iname "*default*.xlsx")
-xlsx[1]=$(find . -iname "*sub*.xlsx")
-
-# 多语言文件名称
-LOCALIZABLE_FILES[0]="Localizable.strings"
-LOCALIZABLE_FILES[1]="StyleProject.strings"
-
-# 多语言存放的目录名字
-LOCALIZABLE_DIR_NAME="Localization"
-
-# 自定义的换行符
-NEWLINE="#@@#"
-
-
-# Localization目录
-LOCALIZATION_PATH=$(cd "${PROJECT_DIR}"; cd "$(find . -name "${LOCALIZABLE_DIR_NAME}" -type d)"; pwd)
 
 ################################## 开始执行内容 ##################################
 
