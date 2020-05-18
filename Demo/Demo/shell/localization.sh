@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 记录所花费的时间
+start_time=$(date +%s)
+totalCost=""
+
 ################################## 配置相关 #################################
 # 多语言表格
 xlsx[0]=$(find . -iname "*default*.xlsx")
@@ -26,6 +30,33 @@ LOCALIZATION_PATH=$(cd "${PROJECT_DIR}"; cd "$(find . -name "${LOCALIZABLE_DIR_N
 
 # =============================== 文件相关 =============================== #
 CSV_FILE="tmp.csv"
+
+
+################################## 自定义函数 #################################
+# 格式化时间字符串
+function formatCostTime() {
+    totalSecond=$1
+
+    if [[ $totalSecond -lt 1 ]]; then
+        # 毫秒
+        totalSecond="${totalSecond}ms"
+        echo "进来毫秒了"
+    elif [[ $totalSecond -lt 60 ]]; then
+        # 秒
+        totalCost="${totalSecond}s"
+    elif [[ $totalSecond -lt 3600 ]]; then
+        # 分
+        minut=`expr $totalSecond / 60`
+        second=`expr $totalSecond % 60`
+        totalCost="${minut}m${second}s"
+    else
+        # 时
+        hour=`expr $totalSecond / 3600`
+        minut=`expr $totalSecond % 3600 / 60`
+        second=`expr $totalSecond % 3600 % 60`
+        totalCost="${hour}h${minut}m${second}s"
+    fi
+}
 
 ################################## 开始执行内容 ##################################
 
@@ -78,6 +109,12 @@ done
 rm -f $CSV_FILE
 
 done
+
+# 计算整体执行时长
+end_time=$(date +%s)
+SECONDS=`expr $end_time - $start_time`
+formatCostTime $SECONDS
+echo "总用时: ${totalCost}"
 
 echo "完成操作!"
 
