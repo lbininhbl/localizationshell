@@ -18,8 +18,8 @@ CSV_FILE="tmp.csv"
 
 ################################## 配置相关 #################################
 # 多语言表格
-xlsx[0]=$(find . -iname "*default*.xlsx")
-xlsx[1]=$(find . -iname "*sub*.xlsx")
+xlsx[0]=$(find . -regex '^[^~]*.xlsx$' -iname "*default*")
+xlsx[1]=$(find . -regex '^[^~]*.xlsx$' -iname "*sub*")
 
 # 多语言文件名称
 LOCALIZABLE_FILES[0]="Localizable.strings"
