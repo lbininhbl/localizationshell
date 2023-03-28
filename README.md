@@ -55,6 +55,12 @@ $ ./localization.sh
 
 在 `Demo` 目录下，有简单的demo展示。首先打开终端 `cd` 到 `Demo/Demo/shell` 目录，然后执行 `./localization.sh` 回车。或者直接把脚本文件拖到终端上回车，则可以查看效果，具体在 `Demo/Demo/Demo/Localization` 目录下。
 
+## 常见问题
+
+1. 安装了xlsx2csv还提示 `command not found`
+如果的是 `bash`，你需要把 `PATH="$PATH:$(python3 -m site --user-base)/bin"` 这行配置添加到你的 `.bash_profile` 文件中
+如果是 `zsh`，则相应的配置在 `.zprofile` 中
+
 ## 最后
 
 虽然上面提到一些约定，当然如果你也有shell的经验，完全可以自己在这上面做修改，以达到符合你的业务需求。或者，你有比这个更好的工具，请分享给我，谢谢啦~
