@@ -60,7 +60,9 @@ $ ./localization.sh
 1. 安装了xlsx2csv还提示 `command not found`
 
    如果的是 `bash`，你需要把 `PATH="$PATH:$(python3 -m site --user-base)/bin"` 这行配置添加到你的 `.bash_profile` 文件中
-如果是 `zsh`，则相应的配置在 `.zprofile` 中
+如果是 `zsh`，则相应的配置在 `.zshrc` 中
+
+   如果是 Intel 芯片的机器，则把路径设置为 `PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"` , 其中按你系统中所安装的 python 版本来进行修改.
 
 ## 最后
 
